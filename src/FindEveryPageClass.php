@@ -54,6 +54,15 @@ class FindEveryPageClass {
         foreach ($crawler->filter('a') as $a) {
             $node = new Crawler($a);
             $currentUrl = $node->extract(['href'])[0];
+
+            // $this->printlog($currentUrl);
+
+            if (str_starts_with($currentUrl, '/')) {
+                $currentUrl = $this->baseUrl . substr($currentUrl, 1);
+                if(strpos($currentUrl, '#') !== false){
+                    $currentUrl = explode('#', $currentUrl)[0];
+                }
+            }
             // var_dump($currentUrl);
             if ( 
                 $this->urlStartsWith($currentUrl, $this->baseUrl) && 

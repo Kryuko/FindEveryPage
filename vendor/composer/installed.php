@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'kryuko/find-every-page',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'b0ce1432ba4929a82e2e05c4d1e74d25febe529d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'kryuko/find-every-page' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'b0ce1432ba4929a82e2e05c4d1e74d25febe529d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
