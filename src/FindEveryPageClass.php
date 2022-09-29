@@ -43,7 +43,7 @@ class FindEveryPageClass {
 
     public function updateArrayWithCurrentPageUrls($url) {
 
-        $this->printlog('>>> DOWNLOADING PAGE > '.$url, '___START_CRAWLING___');
+        $this->printlog('>>> DOWNLOADING PAGE > '.$url . PHP_EOL . '>>> FOUND IN > ' . @$this->urlsArray[ $url ]['found_in'] , '___START_CRAWLING___');
 
         $page = file_get_contents($url);
         $crawler = new Crawler($page);
@@ -57,7 +57,7 @@ class FindEveryPageClass {
 
             // $this->printlog($currentUrl);
 
-            if (str_starts_with($currentUrl, '/')) {
+            if (str_starts_with($currentUrl, '/') && !str_starts_with($currentUrl, '//') ) {
                 $currentUrl = $this->baseUrl . substr($currentUrl, 1);
                 if(strpos($currentUrl, '#') !== false){
                     $currentUrl = explode('#', $currentUrl)[0];
@@ -76,6 +76,7 @@ class FindEveryPageClass {
             ) {
                 $this->urlsArray[ $currentUrl ]['url'] = $currentUrl;
                 $this->urlsArray[ $currentUrl ]['done'] = 'no';
+                $this->urlsArray[ $currentUrl ]['found_in'] = $url;
             }
         }
         $this->printlog('Time: '. $this->sleepTime . ' seconds.' ,'....Sleeping....');
